@@ -8,12 +8,22 @@ var mongoose = require('mongoose');
 // definir esquema de anuncio
 
 var anuncioSchema = mongoose.Schema({
-    name: String,
-    sell: Boolean,
-    price: Number,
-    photo: String,
+    nombre: String,
+    venta: Boolean,
+    precio: Number,
+    foto: String,
     tags: [String]
 });
+
+// Método estático que borra todos los anuncios de la BD
+
+anuncioSchema.statics.deleteAll = function(cb) {
+    Anuncio.remove({}, function(err) {
+        if (err) return cb(err);
+        console.log('BD Anuncios borrada')
+        cb(null);
+    });
+};
 
 // metodo estático que devuelve una lista de la BD
 anuncioSchema.statics.lista = function( criterios, callback) {
@@ -36,6 +46,6 @@ anuncioSchema.statics.lista = function( criterios, callback) {
 
 // exportar
 
-var Anuncio = mongoose.model('Anuncio', anuncioSchemaSchema);
+var Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
 module.exports = Anuncio;
