@@ -33,7 +33,7 @@ function runInstallScript() {
     async.series([
         initAnuncios,
         initUsuarios
-    ], function (err, results) {
+        ], function (err, results) {
         if (err) {
         console.error('Hubo un error: ', err);
         return process.exit(1);
