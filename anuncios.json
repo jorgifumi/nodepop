@@ -13,6 +13,20 @@
       "precio": 50.00,
       "foto": "iphone.jpg",
       "tags": [ "lifestyle", "mobile"]
+    },
+    {
+      "nombre": "Gafas Ray-Ban",
+      "venta": true,
+      "precio": 80.00,
+      "foto": "gafas.jpg",
+      "tags": [ "lifestyle"]
+    }
+  ],
+  "usuarios": [
+    {
+      "nombre": "Thomas Andersson",
+      "email": "tanderson@thematrix.com",
+      "clave": "clavedeprueba"
     }
   ]
 }
