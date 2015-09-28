@@ -2,6 +2,8 @@
 
 var db = require('./models/db');
 var mongoose = require('mongoose');
+require('./models/Anuncio');
+require('./models/Usuario');
 var readLine = require('readline');
 var async = require('async');
 var fs = require('fs');
@@ -33,7 +35,7 @@ function runInstallScript() {
     async.series([
         initAnuncios,
         initUsuarios
-    ], function (err, results) {
+        ], function (err, results) {
         if (err) {
         console.error('Hubo un error: ', err);
         return process.exit(1);

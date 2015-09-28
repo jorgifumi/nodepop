@@ -26,12 +26,12 @@ anuncioSchema.statics.deleteAll = function(cb) {
 };
 
 // metodo estático que devuelve una lista de la BD
-anuncioSchema.statics.lista = function( criterios, callback) {
+anuncioSchema.statics.list = function( criterios, callback) {
 
     // uso .find sin callback para que me de un objeto query sin ejecutar
     var query = Anuncio.find(criterios);
 
-    query.sort('price');
+    query.sort('precio');
 
     query.exec( function(err, rows) {
         if (err) {
