@@ -12,7 +12,7 @@ var Anuncio = mongoose.model('Anuncio');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Anuncio.list({}, function(err, rows){
-            console.log(rows);
+            //console.log(rows);
             res.render('anuncios', { filas: rows});
         }
 
