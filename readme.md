@@ -2,6 +2,6 @@
 
 Para arrancar normalmente utilizar `$npm start`.
 
-Para arrancar en modo de desarrollo `$npm start dev`.
+Para arrancar en modo de desarrollo `$npm run dev`.
 
-Para inicializar la BD arrancar con el comando `$npm start installDB`.
+Para inicializar la BD arrancar con el comando `$npm run installDB`.
