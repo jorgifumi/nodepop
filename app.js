@@ -43,6 +43,11 @@ app.use(function(req, res, next) {
 
 // error handlers
 
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.json(err);
+});
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
