@@ -24,10 +24,4 @@ db.once('open', function() {
 
 mongoose.connect('mongodb://localhost/nodepop');
 
-// Inicializamos modelos
-
-require('./Anuncio');
-require('./Usuario');
-
-
 module.exports = db;
