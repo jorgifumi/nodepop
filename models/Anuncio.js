@@ -26,19 +26,23 @@ anuncioSchema.statics.deleteAll = function(cb) {
 };
 
 // metodo estático que devuelve una lista de la BD
-anuncioSchema.statics.list = function( criterios, callback) {
+anuncioSchema.statics.list = function( criterios, cb) {
 
     // uso .find sin callback para que me de un objeto query sin ejecutar
-    var query = Anuncio.find(criterios);
+    var query = Anuncio.find(criterios.tags & criterios.venta);
 
-    query.sort('precio');
+    console.log(criterios.tags & criterios.venta);
+
+    query.sort(criterios.sort);
+    query.skip(criterios.start);
+    query.limit(criterios.limit);
 
     query.exec( function(err, rows) {
         if (err) {
-            return callback(err);
+            return cb(err);
         }
 
-        return callback(null, rows);
+        return cb(null, rows);
 
     });
 };

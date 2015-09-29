@@ -9,14 +9,17 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Anuncio = mongoose.model('Anuncio');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    Anuncio.list({}, function(err, rows){
-            //console.log(rows);
-            res.render('anuncios', { filas: rows});
-        }
+/* GET lista de anuncios con filtros. */
 
-    );
+router.get('/', function(req, res, next) {
+    console.log(req.query);
+    Anuncio.list(req.query, function(err, results) {
+        if (err) {
+            res.json({ok: false, error: err});
+        }
+        //console.log(rows);
+        res.json({ok: true, anuncios: results});
+    });
 });
 
 module.exports = router;
