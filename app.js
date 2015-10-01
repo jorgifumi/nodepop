@@ -12,7 +12,6 @@ require('./models/Usuario');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var anuncios = require('./routes/apiv1/anuncios');
 
 var app = express();
 
@@ -32,7 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/apiv1/anuncios', anuncios);
+
+// API Versión 1
+
+app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
