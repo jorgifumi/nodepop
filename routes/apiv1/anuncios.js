@@ -12,7 +12,7 @@ var Anuncio = mongoose.model('Anuncio');
 /* GET lista de anuncios con filtros. */
 
 router.get('/', function(req, res, next) {
-    console.log(req.query);
+    //console.log(req.query);
     Anuncio.list(req.query, function(err, results) {
         if (err) {
             res.json({ok: false, error: err});
