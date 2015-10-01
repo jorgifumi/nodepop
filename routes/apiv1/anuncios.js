@@ -9,6 +9,10 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Anuncio = mongoose.model('Anuncio');
 
+// Auth con JWT
+var jwtAuth = require('../../lib/jwtAuth');
+router.use(jwtAuth());
+
 /* GET lista de anuncios con filtros. */
 
 router.get('/', function(req, res, next) {

@@ -75,7 +75,7 @@ function initUsuarios(cb) {
     Usuario.remove({}, function() {
         console.log('BD Usuarios borrada');
         // aqui cargaríamos al menos un usuario (Usuario.save)
-        var usuario = new Usuario({nombre: "Thomas", email: "tanderson@thematrix.com", clave: "clavedeprueba"});
+        var usuario = new Usuario({nombre: 'Thomas', email: 'tanderson@thematrix.com', clave: 'steak'});
 
         usuario.save(function (err, usuarioCreado) {
             if (err) throw err;
