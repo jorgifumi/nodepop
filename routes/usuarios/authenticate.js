@@ -1,10 +1,5 @@
 'use strict';
 
-/**
- * API /users resource.
- * @module routes/apiv1/users
- */
-
 var express = require('express');
 var router = express.Router();
 
@@ -13,6 +8,9 @@ var Usuario = mongoose.model('Usuario');
 
 var jwt = require('jsonwebtoken');
 var config = require('../../local_config');
+
+var createHash = require('sha.js');
+var sha256 = createHash('sha256');
 
 /**
  * @function /authenticate
@@ -34,7 +32,8 @@ router.post('/authenticate', function(req, res) {
         }
         else if (user) {
             // check if password matches
-            if (user.clave != req.body.contraseña) {
+            var claveHash = sha256.update(req.body.contraseña, 'utf8').digest('hex');
+            if (user.clave != claveHash) {
                 res.json({ ok: false, error: {code: 401, message: 'Authentication failed. Wrong password.'}});
             } else {
                 // if user is found and password is right

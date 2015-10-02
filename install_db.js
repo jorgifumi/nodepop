@@ -74,12 +74,11 @@ function initUsuarios(cb) {
     // elimino todos
     Usuario.remove({}, function() {
         console.log('BD Usuarios borrada');
-        // aqui cargaríamos al menos un usuario (Usuario.save)
-        var usuario = new Usuario({nombre: 'Thomas', email: 'tanderson@thematrix.com', clave: 'steak'});
-
-        usuario.save(function (err, usuarioCreado) {
+        var newUser = {nombre: 'Thomas', email: 'tanderson@thematrix.com', clave: 'steak'};
+        // Cargar usuarios
+        Usuario.new(newUser, function (err) {
             if (err) throw err;
-            console.log('Usuario ' + usuarioCreado.nombre + ' creado');
+
             return cb();
         });
     });
