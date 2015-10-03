@@ -9,13 +9,14 @@ var bodyParser = require('body-parser');
 require('./models/db');
 require('./models/Anuncio');
 require('./models/Usuario');
+require('./models/Token');
 
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'ejs');
 
 
 
@@ -35,6 +36,8 @@ app.use('/usuarios', require('./routes/usuarios/authenticate'));
 
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 app.use('/apiv1/register', require('./routes/apiv1/register'));
+app.use('/apiv1/tokenPush', require('./routes/apiv1/tokenPush'));
+app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,10 +58,10 @@ app.use(function (err, req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({error: {
       message: err.message,
       error: err
-    });
+    }});
   });
 }
 
@@ -66,10 +69,10 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({error: {
     message: err.message,
     error: {}
-  });
+  }});
 });
 
 

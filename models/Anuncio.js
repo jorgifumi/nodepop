@@ -12,7 +12,7 @@ var anuncioSchema = mongoose.Schema({
     venta: Boolean,
     precio: Number,
     foto: String,
-    tags: [String]
+    tags: {type: [String], enum: ['mobile', 'lifestyle', 'work', 'motor']}
 });
 
 // Método estático que borra todos los anuncios de la BD
