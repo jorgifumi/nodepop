@@ -30,7 +30,9 @@ usuarioSchema.statics.new = function(datos, cb) {
     var usuario = new Usuario({nombre: datos.nombre, email: datos.email, clave: claveHash});
 
     usuario.save(function (err) {
-        if (err) return cb(err);
+        if (err){
+            return cb(err);
+        }
         console.log('Usuario ' + usuario.nombre + ' creado'); // Por que solo me sale el log de uno pero me crea todos??
         return cb(null);
     });

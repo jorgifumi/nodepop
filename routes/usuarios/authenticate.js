@@ -36,7 +36,7 @@ router.post('/authenticate', function(req, res) {
         else if (user) {
             // check if password matches
             var claveHash = sha256.update(req.body.contraseña, 'utf8').digest('hex');
-            if (user.clave !== claveHash) {
+            if (user.clave != claveHash) {
                 return errorStd({code: 401, message: 'AUTH_FAIL' }, req.body.lang, res);
             } else {
                 // if user is found and password is right
