@@ -11,6 +11,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Usuario = mongoose.model('Usuario');
 
+var errorStd = require('../../lib/errorStd');
+
 var jwt = require('jsonwebtoken');
 var config = require('../../local_config');
 
@@ -30,12 +32,13 @@ router.post('/authenticate', function(req, res) {
             return res.status(500).json({ok: false, error: {code: 500, message: err.message} });
         }
         if (!user) {
-            return res.json({ ok: false, error: {code: 401, message: 'Authentication failed. User not found.' }});
+            //return res.json({ ok: false, error: {code: 401, message: 'Authentication failed. User not found.' }});
+            return errorStd({code: 401, message: 'USER_NOT_FOUND' }, req.body.lang, res);
         }
         else if (user) {
             // check if password matches
             if (user.clave != req.body.contraseña) {
-                res.json({ ok: false, error: {code: 401, message: 'Authentication failed. Wrong password.'}});
+                return errorStd({code: 401, message: 'AUTH_FAIL' }, req.body.lang, res);
             } else {
                 // if user is found and password is right
                 // create a token
