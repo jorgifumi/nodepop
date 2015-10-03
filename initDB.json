@@ -37,6 +37,21 @@
       "nombre": "Agente Smith",
       "email": "MrSmith@thematrix.com",
       "clave": "ihateyou"
+    },
+    {
+      "nombre": "Cifra",
+      "email": "cifra@thematrix.com",
+      "clave": "traidor"
+    },
+    {
+      "nombre": "Morpheo",
+      "email": "morpheo@thematrix.com",
+      "clave": "believe"
+    },
+    {
+      "nombre": "Raton",
+      "email": "raton@thematrix.com",
+      "clave": "thewomaninred"
     }
   ]
 }
