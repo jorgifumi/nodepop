@@ -9,7 +9,7 @@ var async = require('async');
 var fs = require('fs');
 var path = require('path');
 
-const ruta = path.join('./', 'anuncios.json');
+const ruta = path.join('./', 'initDB.json');
 
 db.once('open', function() {
 
@@ -58,12 +58,12 @@ function initAnuncios(cb) {
 
             for(var i = 0; i < arr.length; i++){
                 var anuncio = new Anuncio(arr[i]);
-                anuncio.save(function (err, anuncioLeido) {
+                anuncio.save(function (err, creado) {
                     if (err) throw err;
-                    console.log('Anuncio ' + anuncioLeido.nombre + ' creado');
+                    console.log('Anuncio ' + creado.nombre + ' creado');
                 });
             }
-            return cb();
+            return cb(null);
         });
     });
 }
@@ -72,15 +72,21 @@ function initUsuarios(cb) {
     var Usuario = mongoose.model('Usuario');
 
     // elimino todos
-    Usuario.remove({}, function() {
-        console.log('BD Usuarios borrada');
-        // aqui cargaríamos al menos un usuario (Usuario.save)
-        var usuario = new Usuario({nombre: 'Thomas', email: 'tanderson@thematrix.com', clave: 'steak'});
+    Usuario.deleteAll( function() {
+        fs.readFile(ruta, function(err, data) {
+            if(err){
+                console.log('Error al abrir archivo JSON');
+                return cb(err);
+            }
+            var arr = JSON.parse(data).usuarios;
 
-        usuario.save(function (err, usuarioCreado) {
-            if (err) throw err;
-            console.log('Usuario ' + usuarioCreado.nombre + ' creado');
-            return cb();
+            for(var i = 0; i < arr.length; i++) {
+                // Cargar usuarios
+                Usuario.new(arr[i], function (err) {
+                    if (err) return cb(err);
+                    return cb(null);
+                });
+            }
         });
     });
 }

@@ -21,7 +21,7 @@ anuncioSchema.statics.deleteAll = function(cb) {
     Anuncio.remove({}, function(err) {
         if (err) return cb(err);
         console.log('BD Anuncios borrada');
-        cb(null);
+        return cb(null);
     });
 };
 

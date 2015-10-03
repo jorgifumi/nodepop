@@ -34,6 +34,7 @@ app.use('/usuarios', require('./routes/usuarios/authenticate'));
 // API Versión 1
 
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
+app.use('/apiv1/register', require('./routes/apiv1/register'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
