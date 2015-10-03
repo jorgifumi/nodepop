@@ -33,12 +33,12 @@ router.post('/authenticate', function(req, res) {
         }
         if (!user) {
             //return res.json({ ok: false, error: {code: 401, message: 'Authentication failed. User not found.' }});
-            return errorStd({code: 401, message: 'Authentication failed. User not found.' },res);
+            return errorStd({code: 401, message: 'USER_NOT_FOUND' }, req.body.lang, res);
         }
         else if (user) {
             // check if password matches
             if (user.clave != req.body.contraseña) {
-                res.json({ ok: false, error: {code: 401, message: 'Authentication failed. Wrong password.'}});
+                return errorStd({code: 401, message: 'AUTH_FAIL' }, req.body.lang, res);
             } else {
                 // if user is found and password is right
                 // create a token

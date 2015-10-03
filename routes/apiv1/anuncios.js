@@ -17,12 +17,12 @@ router.use(jwtAuth());
 
 /* GET lista de anuncios con filtros. */
 
-router.get('/', function(req, res, next) {
-    //console.log(req.query);
+router.get('/', function(req, res) {
     Anuncio.list(req.query, function(err, results) {
         if (err) {
             //res.json({ok: false, error: err});
-            errorStd(err, res);
+            console.log(err);
+            errorStd({code:401, message: err.message || 'UNKNOWN'}, req.query.lang, res);
         }
         //console.log(rows);
         res.json({ok: true, anuncios: results});
