@@ -9,6 +9,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Anuncio = mongoose.model('Anuncio');
 
+var errorStd = require('../../lib/errorStd');
+
 // Auth con JWT
 var jwtAuth = require('../../lib/jwtAuth');
 router.use(jwtAuth());
@@ -19,7 +21,8 @@ router.get('/', function(req, res, next) {
     //console.log(req.query);
     Anuncio.list(req.query, function(err, results) {
         if (err) {
-            res.json({ok: false, error: err});
+            //res.json({ok: false, error: err});
+            errorStd(err, res);
         }
         //console.log(rows);
         res.json({ok: true, anuncios: results});
