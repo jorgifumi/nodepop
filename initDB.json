@@ -24,9 +24,19 @@
   ],
   "usuarios": [
     {
-      "nombre": "Thomas Andersson",
+      "nombre": "Thomas Anderson",
       "email": "tanderson@thematrix.com",
-      "clave": "clavedeprueba"
+      "clave": "steak"
+    },
+    {
+      "nombre": "Trinity",
+      "email": "trinity@thematrix.com",
+      "clave": "lovetheone"
+    },
+    {
+      "nombre": "Agente Smith",
+      "email": "MrSmith@thematrix.com",
+      "clave": "ihateyou"
     }
   ]
 }
