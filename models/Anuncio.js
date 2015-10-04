@@ -1,19 +1,32 @@
 /**
  * Created by jorgifumi on 24/9/15.
  */
-"use strict";
+'use strict';
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 // definir esquema de anuncio
 
-var anuncioSchema = mongoose.Schema({
+let anuncioSchema = mongoose.Schema({
     nombre: String,
     venta: Boolean,
     precio: Number,
     foto: String,
     tags: {type: [String], enum: ['mobile', 'lifestyle', 'work', 'motor']}
 });
+
+anuncioSchema.statics.new = function(datos, cb) {
+
+    var anuncio = new Anuncio(datos);
+
+    anuncio.save(function (err) {
+        if (err){
+            return cb(err);
+        }
+        console.log('Anuncio ' + anuncio.nombre + ' creado');
+        return cb(null);
+    });
+};
 
 // Método estático que borra todos los anuncios de la BD
 
@@ -56,7 +69,7 @@ anuncioSchema.statics.list = function( criterios, cb) {
     }
 
     if (typeof criterios.nombre !== 'undefined'){
-        filtros.nombre = new RegExp('^' + criterios.nombre, "i");
+        filtros.nombre = new RegExp('^' + criterios.nombre, 'i');
     }
 
     var query = Anuncio.find(filtros); // uso .find sin callback para que me de un objeto query sin ejecutar

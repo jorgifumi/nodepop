@@ -35,7 +35,7 @@ function runInstallScript() {
     async.series([
         initAnuncios,
         initUsuarios
-        ], function (err, results) {
+        ], function (err) {
         if (err) {
         console.error('Hubo un error: ', err);
         return process.exit(1);
@@ -56,14 +56,10 @@ function initAnuncios(cb) {
             }
             var arr = JSON.parse(data).anuncios;
 
-            for(var i = 0; i < arr.length; i++){
-                var anuncio = new Anuncio(arr[i]);
-                anuncio.save(function (err, creado) {
-                    if (err) throw err;
-                    console.log('Anuncio ' + creado.nombre + ' creado');
-                });
-            }
-            return cb(null);
+            async.concat(arr,Anuncio.new,function(err){
+                if(err) return cb(err);
+                return cb(null);
+            });
         });
     });
 }
@@ -80,13 +76,10 @@ function initUsuarios(cb) {
             }
             var arr = JSON.parse(data).usuarios;
 
-            for(var i = 0; i < arr.length; i++) {
-                // Cargar usuarios
-                Usuario.new(arr[i], function (err) {
-                    if (err) return cb(err);
-                    return cb(null);
-                });
-            }
+            async.concat(arr,Usuario.new,function(err){
+                if(err) return cb(err);
+                return cb(null);
+            });
         });
     });
 }

@@ -1,7 +1,7 @@
 /**
  * Created by jorgifumi on 26/9/15.
  */
-"use strict";
+'use strict';
 
 var mongoose = require('mongoose');
 
