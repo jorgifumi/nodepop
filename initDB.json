@@ -1,0 +1,57 @@
+{
+  "anuncios": [
+    {
+      "nombre": "Bicicleta",
+      "venta": true,
+      "precio": 230.15,
+      "foto": "bici.jpg",
+      "tags": [ "lifestyle", "motor"]
+    },
+    {
+      "nombre": "iPhone 3GS",
+      "venta": false,
+      "precio": 50.00,
+      "foto": "iphone.jpg",
+      "tags": [ "lifestyle", "mobile"]
+    },
+    {
+      "nombre": "Gafas Ray-Ban",
+      "venta": true,
+      "precio": 80.00,
+      "foto": "gafas.jpg",
+      "tags": [ "lifestyle"]
+    }
+  ],
+  "usuarios": [
+    {
+      "nombre": "Thomas Anderson",
+      "email": "tanderson@thematrix.com",
+      "clave": "steak"
+    },
+    {
+      "nombre": "Trinity",
+      "email": "trinity@thematrix.com",
+      "clave": "lovetheone"
+    },
+    {
+      "nombre": "Agente Smith",
+      "email": "MrSmith@thematrix.com",
+      "clave": "ihateyou"
+    },
+    {
+      "nombre": "Cifra",
+      "email": "cifra@thematrix.com",
+      "clave": "traidor"
+    },
+    {
+      "nombre": "Morpheo",
+      "email": "morpheo@thematrix.com",
+      "clave": "believe"
+    },
+    {
+      "nombre": "Raton",
+      "email": "raton@thematrix.com",
+      "clave": "thewomaninred"
+    }
+  ]
+}
