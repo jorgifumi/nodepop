@@ -21,7 +21,7 @@ router.post('/', function(req , res){
             errorStd({code:401, message: 'UNKNOWN'}, req.query.lang, res);
             return;
         }
-        return res.json({ok: true, usuario: newToken.token});
+        return res.json({ok: true, tokenPush: newToken.token});
     });
 });
 

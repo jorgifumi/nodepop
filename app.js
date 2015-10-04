@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Autenticacion
 
-app.use('/usuarios', require('./routes/usuarios/authenticate'));
+app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios/authenticate'));
 
 // API Versión 1
 

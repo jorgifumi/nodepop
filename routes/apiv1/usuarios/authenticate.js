@@ -6,10 +6,10 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Usuario = mongoose.model('Usuario');
 
-var errorStd = require('../../lib/errorStd');
+var errorStd = require('../../../lib/errorStd');
 
 var jwt = require('jsonwebtoken');
-var config = require('../../local_config');
+var config = require('../../../local_config');
 
 var createHash = require('sha.js');
 var sha256 = createHash('sha256');
