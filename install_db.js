@@ -2,8 +2,7 @@
 
 var db = require('./models/db');
 var mongoose = require('mongoose');
-require('./models/Anuncio');
-require('./models/Usuario');
+
 var readLine = require('readline');
 var async = require('async');
 var fs = require('fs');

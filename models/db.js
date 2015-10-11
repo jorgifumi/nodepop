@@ -24,4 +24,8 @@ db.once('open', function() {
 
 mongoose.connect('mongodb://localhost/nodepop');
 
+require('./Anuncio');
+require('./Usuario');
+require('./Token');
+
 module.exports = db;

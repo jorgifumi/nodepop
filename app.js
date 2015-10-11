@@ -9,10 +9,6 @@ var bodyParser = require('body-parser');
 
 // init db
 require('./models/db');
-require('./models/Anuncio');
-require('./models/Usuario');
-require('./models/Token');
-
 
 var app = express();
 
