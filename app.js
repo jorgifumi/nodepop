@@ -30,16 +30,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Autenticacion
-
-app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios/authenticate'));
-
 // API Versión 1
 
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
-app.use('/apiv1/register', require('./routes/apiv1/register'));
+app.use('/apiv1/usuarios', require('./routes/apiv1/usuarios'));
 app.use('/apiv1/tokenPush', require('./routes/apiv1/tokenPush'));
-app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

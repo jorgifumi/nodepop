@@ -4,13 +4,13 @@
 'use strict';
 
 
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var errorStd = require('../../lib/errorStd');
+let errorStd = require('../../lib/errorStd');
 
-var mongoose = require('mongoose');
-var Token = mongoose.model('Token');
+let mongoose = require('mongoose');
+let Token = mongoose.model('Token');
 
 router.post('/', function(req , res){
     var newToken = { plataforma: req.body.plataforma, token: req.body.token, usuario: req.body.usuario};

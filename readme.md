@@ -21,7 +21,7 @@ Por el momento estas son los servicios que proporciona:
 
 ###Registro
 
-Se accede en la ruta `/apiv1/register' y requiere los siguientes parámetros en el body (x-www-form-urlencoded):
+Se utiliza con un POST en la ruta `/apiv1/usuarios/register' y requiere los siguientes parámetros en el body (x-www-form-urlencoded):
 
 * email
 * clave
@@ -31,7 +31,7 @@ La clave se almacena base de datos codificada con un hash. El email está indexa
 
 ###Autenticación
 
-Se accede en la ruta `/apiv1/usuarios/authenticate` y se pasan también en el body los parámetros:
+Se accede en la ruta POST `/apiv1/usuarios/authenticate` y se pasan también en el body los parámetros:
 
 * email
 * contraseña
@@ -41,7 +41,7 @@ Si la autenticación (que funciona con JSON Web Token) es correcta nos devolver�
 
 ###Lista de anuncios
 
-Se puede acceder en el recurso `/apiv1/anuncios` y se pueden aplicar filtros con los siguientes parámentros en la query string:
+Se puede acceder con un GET en el recurso `/apiv1/anuncios/lista` y se pueden aplicar filtros con los siguientes parámentros en la query string:
 
 * tag [mobile , motor, lifestyle o work]
 * venta [true o false]
@@ -63,10 +63,10 @@ Llamada de ejemplo: `http://localhost:3000/apiv1/anuncios?tag=mobile&venta=false
 
 ###Lista de tags
 
-Habra que llamar a la ruta `/apiv1/tags` , no hace falta estar logeado en este caso y nos devolverá una lista de los tags posibles.
+Habra que llamar con GET a la ruta `/apiv1/auncios/tags` , no hace falta estar logeado en este caso y nos devolverá una lista de los tags posibles.
 
 ###Guardar token de Push
-En este caso tampoco hace falta validación y la ruta sería `/apiv1/tokenPush` 
+En este caso tampoco hace falta validación y habría que hacer un GET y la ruta sería `/apiv1/tokenPush`
 El cliente tiene que mandar el valor *ios* o *android* con el parametro *plataforma* en el body junto con el token y opcionalmente el usuario y el sistema los almacenará en la base de datos.
 
 ##Otras características
