@@ -14,7 +14,7 @@ let errorStd = require('../../lib/errorStd');
 
 router.get('/tags', function(req, res) {
 
-    res.json({tags: ['mobile','lifestyle','motor','work']}); // Para 4 tags y el tiempo que tenemos de momento lo dejamos así
+    res.json({ok: 'true', tagsPosibles: Anuncio.tagsPosibles()});
 });
 
 // Auth con JWT

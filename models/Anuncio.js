@@ -88,6 +88,12 @@ anuncioSchema.statics.list = function( criterios, cb) {
     });
 };
 
+anuncioSchema.statics.tagsPosibles = function () {
+
+    return ['mobile','lifestyle','motor','work'];
+
+};
+
 
 // exportar
 

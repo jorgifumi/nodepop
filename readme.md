@@ -12,7 +12,7 @@ Para arrancar en modo de desarrollo `$npm run dev`
 
 Para inicializar la BD arrancar con el comando `$npm run installDB` cargara usuarios y anuncios de prueba desde el archivo *initDB.json*
 
-También para pasar los test (revisa codigo con JSHint) podemos usar `npm test`
+También para revisar el código con JSHint podemos usar `npm run hints`
 
 
 ##Funciones
