@@ -6,12 +6,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 // init db
 require('./models/db');
 
 var app = express();
 
+let ruta = path.join('./', 'errores.json');
+global.errores = fs.readFileSync(ruta);
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
