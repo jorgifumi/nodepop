@@ -76,4 +76,9 @@ El API implementa cluster para maximizar el rendimiento y el código se ha valid
 
 #Despliegue
 
-Para realizar la práctica del módulo DevOps se ha desplegado la aplicación en una instancia de AWS. La url es: http://ec2-54-69-86-173.us-west-2.compute.amazonaws.com/ y para probar los archivos estáticos se puede ver por ejemplo con este: http://ec2-54-69-86-173.us-west-2.compute.amazonaws.com/images/anuncios/iphone.jpg
+Para realizar la práctica del módulo DevOps se ha desplegado la aplicación en una instancia de AWS. La url es: http://ec2-54-69-86-173.us-west-2.compute.amazonaws.com/
+Para probar los archivos estáticos se puede ver por ejemplo con este: http://ec2-54-69-86-173.us-west-2.compute.amazonaws.com/images/anuncios/iphone.jpg
+Para entrar directamente la ip es: 54.69.86.173
+
+También he creado un repo de Docker que autogenera una imagen cada vez que hago un commit a GitHub. Está en Docker hub con el nombre jorgifumi/nodepop aunque todavía no está 100x100 operativo
+
