@@ -1,16 +1,16 @@
 {
   "es": {
-    "INVALID_TOKEN": "Token no valido",
-    "USER_NOT_FOUND": "Usuario no encontrado",
+    "INVALID_TOKEN": "Token no valido.",
+    "USER_NOT_FOUND": "Usuario no encontrado.",
     "AUTH_FAIL": "Autenticación fallida, Contraseña incorrecta.",
-    "UNKNOWN": "Error desconocido",
-    "NO_TOKEN": "Token no encontrado"
+    "UNKNOWN": "Error desconocido.",
+    "NO_TOKEN": "Token no encontrado."
   },
   "en": {
-    "INVALID_TOKEN": "Token no valido",
-    "USER_NOT_FOUND": "Usuario no encontrado",
+    "INVALID_TOKEN": "Token no valido.",
+    "USER_NOT_FOUND": "User not found.",
     "AUTH_FAIL": "Authentication failed. Wrong password.",
-    "UNKNOWN": "Unknown error",
-    "NO_TOKEN": "Token not found"
+    "UNKNOWN": "Unknown error.",
+    "NO_TOKEN": "Token not found."
   }
 }

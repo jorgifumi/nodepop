@@ -7,13 +7,20 @@ let mongoose = require('mongoose');
 
 // definir esquema de anuncio
 
+let tagsPermitidos = ['mobile', 'lifestyle', 'work', 'motor']; // Tags que se pueden utilizar
+
 let anuncioSchema = mongoose.Schema({
     nombre: String,
     venta: Boolean,
     precio: Number,
     foto: String,
-    tags: {type: [String], enum: ['mobile', 'lifestyle', 'work', 'motor']}
+    tags: {type: [String], enum: tagsPermitidos}
 });
+
+anuncioSchema.statics.tagsPosibles = function () {
+    return tagsPermitidos;
+
+};
 
 anuncioSchema.statics.new = function(datos, cb) {
 

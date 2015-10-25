@@ -3,13 +3,19 @@
  */
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var mongoose = require('mongoose');
-var Anuncio = mongoose.model('Anuncio');
+let mongoose = require('mongoose');
+let Anuncio = mongoose.model('Anuncio');
 
-var errorStd = require('../../lib/errorStd');
+let errorStd = require('../../lib/errorStd');
+
+
+router.get('/tags', function(req, res) {
+
+    res.json({ok: 'true', tagsPosibles: Anuncio.tagsPosibles()});
+});
 
 // Auth con JWT
 var jwtAuth = require('../../lib/jwtAuth');
@@ -17,7 +23,7 @@ router.use(jwtAuth());
 
 /* GET lista de anuncios con filtros. */
 
-router.get('/', function(req, res) {
+router.get('/lista', function(req, res) {
     Anuncio.list(req.query, function(err, results) {
         if (err) {
             //res.json({ok: false, error: err});
