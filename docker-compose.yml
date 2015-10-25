@@ -1,0 +1,12 @@
+webserver:
+  image: jorgifumi/nginx
+  links:
+    -app:app
+  ports:
+    - "127.0.01:80"
+app:
+  build: .
+  links:
+    - db:db
+db:
+  image: jorgifumi/mongodb
